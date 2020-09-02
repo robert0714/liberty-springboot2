@@ -1,0 +1,4 @@
+-Xmx2G
+-Xms2G
+-Xmn1G
+-Dspring.profiles.active=robert

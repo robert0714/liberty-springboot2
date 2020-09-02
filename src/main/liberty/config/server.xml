@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+    <featureManager>
+    <!-- tag::servlet[] -->
+        <feature>servlet-4.0</feature>
+    <!-- end::servlet[] -->
+    <!-- tag::springboot[] -->
+        <feature>springBoot-2.0</feature>
+    <!-- end::springboot[] -->
+        <feature>sessionCache-1.0</feature>
+        <feature>jaxrs-2.1</feature>
+        <feature>jsonp-1.1</feature>
+        <feature>mpOpenAPI-1.1</feature>  
+    </featureManager>
+
+    <!-- tag::httpport[] -->
+    <httpEndpoint id="defaultHttpEndpoint"
+                  httpPort="9080"
+                  httpsPort="9443" />
+    <!-- end::httpport[] -->
+
+    <!-- tag::springBootApplication[] -->
+    <springBootApplication id="guide-spring-boot" 
+                           location="thin-guide-spring-boot-0.1.0.jar"
+                           name="guide-spring-boot" />
+    <!-- end::springBootApplication[] -->
+   <httpSession cloneId="${cloneId}"   idLength="100" />
+     <httpSessionCache libraryRef="jCacheVendorLib"
+        uri="file:${server.config.dir}/hazelcast-config.xml" />
+        
+     <library id="jCacheVendorLib">
+        <file name="hazelcast-3.12.8.jar" />
+    </library>
+</server>
